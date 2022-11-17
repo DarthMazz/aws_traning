@@ -1,0 +1,1335 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://arch.nijot.org/
+Subject: =?utf-8?Q?Architecting=20on=20AWS=20=E5=8F=82=E8=80=83URL?=
+Date: Wed, 16 Nov 2022 23:33:48 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--tatIQv6JapGYunjut5sobzRgBIVItPih2D82tPuQoY----"
+
+
+------MultipartBoundary--tatIQv6JapGYunjut5sobzRgBIVItPih2D82tPuQoY----
+Content-Type: text/html
+Content-ID: <frame-F431A7B62F5A4E8BB4ACC7F96B749BF4@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://arch.nijot.org/
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"" xml:l=
+ang=3D""><head><meta http-equiv=3D"Content-Type" content=3D"text/html; char=
+set=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-d8a=
+68ee6-b02b-4163-b9a7-ab45cf1e6d18@mhtml.blink" />
+ =20
+  <meta name=3D"generator" content=3D"pandoc">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0, user-scalable=3Dyes">
+  <title>Architecting on AWS =E5=8F=82=E8=80=83URL</title>
+ =20
+  <link rel=3D"stylesheet" href=3D"https://arch.nijot.org/github.css">
+ =20
+ =20
+
+  <meta name=3D"robots" content=3D"noindex">
+  <!--[if lt IE 9]>
+    <script src=3D"//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5sh=
+iv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id=3D"architecting-on-aws-v7">Architecting on AWS (v7)</h1>
+<p>=E6=9C=AC=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=AF=E3=80=81=E3=82=B3=
+=E3=83=BC=E3=82=B9=E4=B8=AD=E3=81=AB=E7=B4=B9=E4=BB=8B=E3=81=97=E3=81=9F=E5=
+=8F=82=E8=80=83URL =E3=82=92=E8=A8=98=E8=BC=89=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82</p>
+<h1 id=3D"=E3=82=B3=E3=83=BC=E3=82=B9=E6=BA=96=E5=82=99">=E3=82=B3=E3=83=BC=
+=E3=82=B9=E6=BA=96=E5=82=99</h1>
+<!-- CTCT =E9=96=8B=E5=82=AC -->
+<!--
+=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E5=AE=9F=E6=96=BD=E3=
+=81=AB=E3=81=82=E3=81=9F=E3=82=8A=E3=80=81=E4=BB=A5=E4=B8=8B=E3=81=AE=E4=BD=
+=9C=E6=A5=AD=E3=81=AE=E3=81=94=E5=8D=94=E5=8A=9B=E3=82=92=E9=A0=82=E3=81=91=
+=E3=81=BE=E3=81=99=E3=82=88=E3=81=86=E4=BD=95=E5=8D=92=E3=82=88=E3=82=8D=E3=
+=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E8=87=B4=E3=81=97=E3=81=BE=E3=81=
+=99=E3=80=82 =20
+ =20
+<br/>
+
+1. =E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=81=AE=E5=BC=95=
+=E3=81=8D=E6=8F=9B=E3=81=88
+   1. =E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=81=AE=E5=BC=
+=95=E3=81=8D=E6=8F=9B=E3=81=88=E6=89=8B=E9=A0=86<BR>- =E5=8F=96=E5=BE=97=E3=
+=81=97=E3=81=9F=E3=83=A9=E3=82=A4=E3=82=BB=E3=83=B3=E3=82=B9=E3=82=B3=E3=83=
+=BC=E3=83=89=E3=82=92=E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=
+=E3=81=AB=E5=BC=95=E3=81=8D=E6=8F=9B=E3=81=88=E3=81=A6=E3=81=8F=E3=81=A0=E3=
+=81=95=E3=81=84=20
+       - =E3=83=96=E3=83=A9=E3=82=A6=E3=82=B6=E3=81=A7=E9=96=B2=E8=A6=A7=E3=
+=81=99=E3=82=8B=E5=A0=B4=E5=90=88: [=E6=89=8B=E9=A0=86=E3=83=AA=E3=83=B3=E3=
+=82=AF](https://go.aws/374jwnm)
+       - =E5=B0=82=E7=94=A8=E3=82=A2=E3=83=97=E3=83=AA=E3=81=A7=E9=96=B2=E8=
+=A6=A7=E3=81=99=E3=82=8B=E5=A0=B4=E5=90=88: [=E6=89=8B=E9=A0=86=E3=83=AA=E3=
+=83=B3=E3=82=AF](https://go.aws/2XC4hil) =20
+<br/>
+1. =E6=BC=94=E7=BF=92=E7=92=B0=E5=A2=83=E3=81=B8=E3=81=AE=E3=83=AD=E3=82=B0=
+=E3=82=A4=E3=83=B3 =20
+  =E6=BC=94=E7=BF=92=E7=92=B0=E5=A2=83=EF=BC=88[https://ctct.qwiklabs.com](=
+https://ctct.qwiklabs.com)=EF=BC=89 =E3=81=B8=E3=83=AD=E3=82=B0=E3=82=A4=E3=
+=83=B3=E3=81=A7=E3=81=8D=E3=82=8B=E3=81=93=E3=81=A8=E3=82=92=E7=A2=BA=E8=AA=
+=8D=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E3=82=A2=
+=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E6=9C=AA=E4=BD=9C=E6=88=90=E3=81=AE=E6=
+=96=B9=E3=81=AF=E3=80=81=E4=B8=8B=E8=A8=98=E3=83=89=E3=82=AD=E3=83=A5=E3=83=
+=A1=E3=83=B3=E3=83=88=E3=82=92=E5=8F=82=E7=85=A7=E3=81=97=E3=82=A2=E3=82=AB=
+=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E4=BD=9C=E6=88=90=E3=81=97=E3=81=A6=E3=
+=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 =20
+    - [qwiklabs =E4=BD=BF=E7=94=A8=E3=83=9E=E3=83=8B=E3=83=A5=E3=82=A2=E3=
+=83=AB](https://go.aws/3gY86pJ)  =E3=80=8C1.qwiklabs=E3=82=A2=E3=82=AB=E3=
+=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E4=BD=9C=E6=88=90=E3=80=8D=E3=82=92=E3=81=
+=94=E5=8F=82=E7=85=A7=E3=81=97=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=
+=E3=82=92=E4=BD=9C=E6=88=90=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=
+=81=84 =20
+<br/>
+1. =E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99=E3=81=AE=E3=83=80=E3=82=A6=E3=83=B3=
+=E3=83=AD=E3=83=BC=E3=83=89 =20
+    - [Architecting =E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99](https://training-=
+nijot-org.s3.ap-northeast-1.amazonaws.com/arch/Architecting7x-Appendices.pd=
+f)
+-->
+<!-- JTP =E9=96=8B=E5=82=AC -->
+<!--
+1. =E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=81=AE=E5=BC=95=
+=E3=81=8D=E6=8F=9B=E3=81=88
+   1. [=E3=83=A9=E3=82=A4=E3=82=BB=E3=83=B3=E3=82=B9=E3=82=B3=E3=83=BC=E3=
+=83=89=E3=81=AE=E5=8F=96=E5=BE=97](https://master.d28q1ti6463iax.amplifyapp=
+.com/)<BR>- =E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E7=94=B3=
+=E3=81=97=E8=BE=BC=E3=81=BF=E6=99=82=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=
+=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=82=92=E5=85=A5=E5=8A=9B=E3=81=97=E3=81=
+=A6=E3=80=81=E3=83=A9=E3=82=A4=E3=82=BB=E3=83=B3=E3=82=B9=E3=82=B3=E3=83=BC=
+=E3=83=89=E3=82=92=E5=8F=96=E5=BE=97=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=
+=81=95=E3=81=84
+   2. [=E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=81=AE=E5=
+=BC=95=E3=81=8D=E6=8F=9B=E3=81=88=E6=89=8B=E9=A0=86](https://remote.jtpedul=
+abs.com/downloads/aws/202104/eVantage_Bookshelf_Manual.pdf)<BR>- =E5=8F=96=
+=E5=BE=97=E3=81=97=E3=81=9F=E3=83=A9=E3=82=A4=E3=82=BB=E3=83=B3=E3=82=B9=E3=
+=82=B3=E3=83=BC=E3=83=89=E3=82=92=E9=9B=BB=E5=AD=90=E3=83=86=E3=82=AD=E3=82=
+=B9=E3=83=88=E3=81=AB=E5=BC=95=E3=81=8D=E6=8F=9B=E3=81=88=E3=81=A6=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=20
+2. =E3=83=A9=E3=83=9C=E7=92=B0=E5=A2=83=E3=81=B8=E3=81=AE=E3=82=A2=E3=82=AF=
+=E3=82=BB=E3=82=B9
+   1. =E6=BC=94=E7=BF=92=E7=92=B0=E5=A2=83: [Qwiklabs](https://jtp.qwiklabs=
+.com/)
+   2. [=E6=BC=94=E7=BF=92=E7=92=B0=E5=A2=83=E3=82=A2=E3=82=AB=E3=82=A6=E3=
+=83=B3=E3=83=88=E4=BD=9C=E6=88=90=E6=96=B9=E6=B3=95](https://remote.jtpedul=
+abs.com/downloads/aws/202104/LabAccount_Manual.pdf)
+3. =E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99
+   1. [Architecting =E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99](https://training-=
+nijot-org.s3.ap-northeast-1.amazonaws.com/arch/Architecting7x-Appendices.pd=
+f)
+4. AWS=E8=A9=A6=E9=A8=93=E3=81=AE=E7=94=B3=E8=BE=BC=E3=81=BF
+   1. [AWS=E8=A9=A6=E9=A8=93=E3=81=AE=E7=94=B3=E8=BE=BC=E3=81=BF=E3=81=A8=
+=E3=83=8F=E3=82=99=E3=82=A6=E3=83=81=E3=83=A3=E3=83=BC=E3=81=AE=E5=88=A9=E7=
+=94=A8](https://training-nijot-org.s3.ap-northeast-1.amazonaws.com/arch/AWS=
+%E8%A9%A6%E9%A8%93%E3%81%AE%E7%94%B3%E8%BE%BC%E3%81%BF%E3%81%A8%E3%83%8F%E3=
+%82%99%E3%82%A6%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E5%88%A9%E7%94%A8_20210=
+5.pdf)
+-->
+<!-- AWS =E9=96=8B=E5=82=AC -->
+<ol type=3D"1">
+<li>=E3=83=A9=E3=83=9C=E7=92=B0=E5=A2=83=E3=81=B8=E3=81=AE=E3=82=A2=E3=82=
+=AF=E3=82=BB=E3=82=B9=E3=81=8A=E3=82=88=E3=81=B3=E3=83=86=E3=82=AD=E3=82=B9=
+=E3=83=88=E3=81=AE=E5=85=A5=E6=89=8B
+<ol type=3D"1">
+<li>=E3=83=A9=E3=83=9C=E7=92=B0=E5=A2=83: <a href=3D"https://us-east-1.stud=
+ent.classrooms.aws.training/class/9CcESVERmHNt4Wh3YxN6b6" target=3D"_blank"=
+ rel=3D"noopener noreferrer">AWS
+Labs</a></li>
+<li><a href=3D"https://training-nijot-org.s3.ap-northeast-1.amazonaws.com/l=
+abs/AWS-Classrooms-Lab-introduction.pdf" target=3D"_blank" rel=3D"noopener =
+noreferrer">=E3=81=94=E5=88=A9=E7=94=A8=E6=96=B9=E6=B3=95</a></li>
+</ol></li>
+<li>=E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99
+<ol type=3D"1">
+<li><a href=3D"https://training-nijot-org.s3.ap-northeast-1.amazonaws.com/a=
+rch/Architecting7x-Appendices.pdf" target=3D"_blank" rel=3D"noopener norefe=
+rrer">Architecting
+=E8=A3=9C=E8=B6=B3=E8=B3=87=E6=96=99</a></li>
+</ol></li>
+</ol>
+<h1 id=3D"mod0-architecting-on-aws=E3=81=B8=E3=82=88=E3=81=86=E3=81=93=E3=
+=81=9D">Mod0: =E3=80=8CArchitecting on
+AWS=E3=80=8D=E3=81=B8=E3=82=88=E3=81=86=E3=81=93=E3=81=9D</h1>
+<ul>
+<li>Architecting on AWS =E3=82=B3=E3=83=BC=E3=82=B9=E8=AA=AC=E6=98=8E
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/training/course-descriptions/archi=
+tect/" target=3D"_blank" rel=3D"noopener noreferrer">Architecting
+on AWS</a></li>
+<li><a href=3D"https://www.youtube.com/watch?v=3DKPwLpwRL9vA" target=3D"_bl=
+ank" rel=3D"noopener noreferrer">Architecting
+on AWS: A Closer Look =EF=BC=88AWS =E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=
+=83=B3=E3=82=B0=EF=BC=89 - YouTube</a></li>
+<li><a href=3D"https://go.aws/AWSTraining-DataSheets" target=3D"_blank" rel=
+=3D"noopener noreferrer">AWS=E3=82=AF=E3=83=A9=E3=82=B9=E3=83=AB=E3=83=BC=
+=E3=83=A0=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0
+=E3=83=87=E3=83=BC=E3=82=BF=E3=82=B7=E3=83=BC=E3=83=88</a></li>
+</ul></li>
+<li>=E7=84=A1=E6=96=99=E3=81=A7=E5=8F=97=E3=81=91=E3=82=89=E3=82=8C=E3=82=
+=8B=E3=83=87=E3=82=B8=E3=82=BF=E3=83=AB=E3=82=B3=E3=83=BC=E3=82=B9
+<ul>
+<li><a href=3D"https://www.aws.training/Details/Curriculum?id=3D34408" targ=
+et=3D"_blank" rel=3D"noopener noreferrer">AWS
+Cloud Practitioner Essentials (Digital) (=E6=97=A5=E6=9C=AC=E8=AA=9E=E5=AD=
+=97=E5=B9=95)</a></li>
+</ul></li>
+<li>=E5=90=84=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE=E8=A9=B3=E7=B4=
+=B0=E3=82=84=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=
+=E3=81=AE=E8=A9=B3=E7=B4=B0=E3=82=92=E7=9F=A5=E3=82=8A=E3=81=9F=E3=81=84
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/aws-jp-introduction/" target=3D"_b=
+lank" rel=3D"noopener noreferrer">AWS
+=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E6=
+=B4=BB=E7=94=A8=E8=B3=87=E6=96=99=E9=9B=86</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/aws-jp-introduction/aws-jp-webinar=
+-service-cut/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E5=88=A5=E8=B3=87=E6=96=99</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod1-=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=
+=A3=E8=A8=AD=E8=A8=88=E3=81=AE=E5=9F=BA=E7=A4=8E">Mod1:
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3=E8=A8=AD=E8=
+=A8=88=E3=81=AE=E5=9F=BA=E7=A4=8E</h1>
+<ul>
+<li>AWS =E3=81=AE=E8=AA=95=E7=94=9F=E7=A7=98=E8=A9=B1
+<ul>
+<li><a href=3D"https://techcrunch.com/2016/07/02/andy-jassys-brief-history-=
+of-the-genesis-of-aws/" target=3D"_blank" rel=3D"noopener noreferrer">How
+AWS came to be</a>
+<ul>
+<li>Amazon =E3=81=AE=E8=AA=B2=E9=A1=8C=E3=82=92=E8=A7=A3=E6=B1=BA=E3=81=99=
+=E3=82=8B=E3=81=9F=E3=82=81=E3=81=AB AWS =E3=81=8C=E3=81=A9=E3=81=AE=E3=82=
+=88=E3=81=86=E3=81=AB=E7=94=9F=E3=81=BE=E3=82=8C=E3=81=A6=E3=81=8D=E3=81=9F=
+=E3=81=AE=E3=81=8B=E3=80=81AWS
+CEO Andy Jassy =E3=81=8C=E8=AA=9E=E3=81=A3=E3=81=9F=E5=86=85=E5=AE=B9=E3=81=
+=8C=E8=A8=98=E4=BA=8B=E3=81=AB=E3=81=AA=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=
+=E3=81=99</li>
+</ul></li>
+</ul></li>
+<li>=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=88=E3=81=AE=E8=B2=
+=AC=E4=BB=BB
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/training-and-certification/s=
+uccessful-solutions-architects-do-these-five-things/" target=3D"_blank" rel=
+=3D"noopener noreferrer">Successful
+solutions architects do these five things | AWS Training and
+Certification Blog</a></li>
+</ul></li>
+<li>Why Cloud?
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/cloud/" target=3D"_blank" rel=3D"n=
+oopener noreferrer">=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89
+(=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9) =
+=E3=81=A8=E3=81=AF=EF=BC=9F=EF=BD=9CAWS - =E3=82=A2=E3=83=9E=E3=82=BE=E3=83=
+=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</a></l=
+i>
+<li><a href=3D"https://aws.amazon.com/jp/aws-ten-reasons/" target=3D"_blank=
+" rel=3D"noopener noreferrer">AWS =E3=81=AE
+=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=81=8C=E9=81=B8=E3=81=B0=E3=82=8C=E3=
+=82=8B 10 =E3=81=AE=E7=90=86=E7=94=B1</a></li>
+</ul></li>
+<li>AWS Documents
+<ul>
+<li><a href=3D"https://docs.aws.amazon.com/ja_jp/index.html" target=3D"_bla=
+nk" rel=3D"noopener noreferrer">AWS
+=E3=81=AE=E3=83=89=E3=82=AD=E3=83=A5=E3=83=A1=E3=83=B3=E3=83=88</a></li>
+</ul></li>
+<li>AWS =E3=82=B0=E3=83=AD=E3=83=BC=E3=83=90=E3=83=AB=E3=82=A4=E3=83=B3=E3=
+=83=95=E3=83=A9=E3=82=B9=E3=83=88=E3=83=A9=E3=82=AF=E3=83=81=E3=83=A3
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/about-aws/global-infrastructure/" =
+target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=82=B0=E3=83=AD=E3=83=BC=E3=83=90=E3=83=AB=E3=82=A4=E3=83=B3=E3=83=95=E3=
+=83=A9=E3=82=B9=E3=83=88=E3=83=A9=E3=82=AF=E3=83=81=E3=83=A3 | AWS</a></li>
+<li>Local Zone: <a href=3D"https://aws.amazon.com/jp/about-aws/global-infra=
+structure/localzones/locations/?nc=3Dsn&amp;loc=3D3&amp;refid=3Dmttc_prt_li=
+nk_2" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Local Zones Locations - Amazon Web Services</a></li>
+<li>=E3=82=A8=E3=83=83=E3=82=B8=E3=83=AD=E3=82=B1=E3=83=BC=E3=82=B7=E3=83=
+=A7=E3=83=B3: <a href=3D"https://aws.amazon.com/jp/cloudfront/features/" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer">=E7=89=B9=E5=BE=B4 - Amazon
+CloudFront | AWS</a></li>
+</ul></li>
+<li>=E3=83=AA=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E3=81=AE=E9=81=B8=E6=8A=
+=9E: =E3=83=87=E3=83=BC=E3=82=BF=E3=81=AE=E4=BF=9D=E5=AD=98=E5=A0=B4=E6=89=
+=80=E3=81=A8=E8=A6=8F=E5=88=B6=E3=82=B3=E3=83=B3=E3=83=97=E3=83=A9=E3=82=A4=
+=E3=82=A2=E3=83=B3=E3=82=B9
+<ul>
+<li><a href=3D"https://ja.wikipedia.org/wiki/EU%E4%B8%80%E8%88%AC%E3%83%87%=
+E3%83%BC%E3%82%BF%E4%BF%9D%E8%AD%B7%E8%A6%8F%E5%89%87" target=3D"_blank" re=
+l=3D"noopener noreferrer">EU=E4=B8=80=E8=88=AC=E3=83=87=E3=83=BC=E3=82=BF=
+=E4=BF=9D=E8=AD=B7=E8=A6=8F=E5=89=87</a></li>
+<li><a href=3D"https://www.nikkei.com/article/DGXMZO35071580W8A900C1FF1000/=
+" target=3D"_blank" rel=3D"noopener noreferrer">EU=E5=80=8B=E4=BA=BA=E3=83=
+=87=E3=83=BC=E3=82=BF=E3=80=81=E5=9F=9F=E5=A4=96=E7=A7=BB=E8=BB=A2=E3=81=AE=
+=E7=A6=81=E6=AD=A2=E3=80=80=E6=97=A5=E6=9C=AC=E3=81=AF=E4=BE=8B=E5=A4=96=E3=
+=81=AB:
+=E6=97=A5=E6=9C=AC=E7=B5=8C=E6=B8=88=E6=96=B0=E8=81=9E</a></li>
+<li><a href=3D"https://www.nikkei.com/article/DGKKZO45264070V20C19A5EA2000/=
+" target=3D"_blank" rel=3D"noopener noreferrer">=E5=8D=81=E5=88=86=E6=80=A7=
+=E8=AA=8D=E5=AE=9A
+=E3=83=87=E3=83=BC=E3=82=BF=E7=A7=BB=E8=BB=A2=E7=A6=81=E6=AD=A2=E3=81=AB=E4=
+=BE=8B=E5=A4=96: =E6=97=A5=E6=9C=AC=E7=B5=8C=E6=B8=88=E6=96=B0=E8=81=9E</a>=
+</li>
+</ul></li>
+<li>=E3=83=AA=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E3=81=AE=E9=81=B8=E6=8A=
+=9E: =E3=83=AA=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E3=81=BE=E3=81=A7=E3=81=
+=AE=E3=83=AC=E3=82=A4=E3=83=86=E3=83=B3=E3=82=B7=E3=83=BC
+<ul>
+<li><a href=3D"https://www.cloudping.info/" target=3D"_blank" rel=3D"noopen=
+er noreferrer">CloudPing.info</a></li>
+<li><a href=3D"https://www.cloudping.co/grid" target=3D"_blank" rel=3D"noop=
+ener noreferrer">AWS Inter-Region
+Latency</a></li>
+</ul></li>
+<li>=E3=83=AA=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E3=81=AE=E9=81=B8=E6=8A=
+=9E: =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE=E5=88=A9=E7=94=A8=E5=8F=
+=AF=E5=90=A6
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/about-aws/global-infrastructure/re=
+gional-product-services/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=83=AA=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E5=88=A5=E3=81=AE=E3=82=B5=E3=
+=83=BC=E3=83=93=E3=82=B9 | AWS</a></li>
+</ul></li>
+<li>Well Architected Framework
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/architecture/well-architected/" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer">AWS
+Well-Architected -
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3=E3=81=AE=E3=
+=83=99=E3=82=B9=E3=83=88=E3=83=97=E3=83=A9=E3=82=AF=E3=83=86=E3=82=A3=E3=82=
+=B9=E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=80=81=E5=AD=A6=E7=BF=92=
+=E3=80=81=E6=B8=AC=E5=AE=9A=E3=80=81=E6=A7=8B=E7=AF=89=E3=82=92=E8=A1=8C=E3=
+=81=86</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/well-architected-tool/" target=3D"=
+_blank" rel=3D"noopener noreferrer">AWS
+Well-Architected Tool =E2=80=93 =E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=
+=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</a></li>
+<li>=E3=81=8A=E5=AE=A2=E6=A7=98=E4=BA=8B=E4=BE=8B: <a href=3D"https://speak=
+erdeck.com/cyberagentdevelopers/aws-well-architected-framework" target=3D"_=
+blank" rel=3D"noopener noreferrer">=E4=BA=8B=E6=A5=AD=E8=B2=AC=E4=BB=BB=E8=
+=80=85=E3=82=82=E5=BF=85=E8=A6=8B!
+AWS Well-Architected Framework=E3=81=AE =E3=83=93=E3=82=B8=E3=83=8D=E3=82=
+=B9=E3=81=B8=E3=81=AE=E6=9C=89=E5=8A=B9=E6=B4=BB=E7=94=A8 / AWS
+Well-Architected Framework - Speaker Deck</a></li>
+<li>What=E2=80=99s new
+<ul>
+<li>6=E6=9C=AC=E7=9B=AE=E3=81=AE=E6=9F=B1: <a href=3D"https://docs.aws.amaz=
+on.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.h=
+tml" target=3D"_blank" rel=3D"noopener noreferrer">=E6=8C=81=E7=B6=9A=E5=8F=
+=AF=E8=83=BD=E6=80=A7=E3=81=AE=E6=9F=B1</a></li>
+<li>Amazon =E3=81=AE=E5=86=8D=E7=94=9F=E5=8F=AF=E8=83=BD=E3=82=A8=E3=83=8D=
+=E3=83=AB=E3=82=AE=E3=83=BC=E3=81=B8=E3=81=AE=E5=8F=96=E3=82=8A=E7=B5=84=E3=
+=81=BF: <a href=3D"https://amazon-press.jp/Top-Navi/Sustainability/Sustaina=
+ble-fulfillment-centers.html" target=3D"_blank" rel=3D"noopener noreferrer"=
+>Amazon
+Newsroom - =E5=BB=BA=E7=89=A9=E3=80=81=E7=92=B0=E5=A2=83=E3=82=A8=E3=83=8D=
+=E3=83=AB=E3=82=AE=E3=83=BC</a></li>
+</ul></li>
+</ul></li>
+<li>=E3=81=9D=E3=81=AE=E4=BB=96
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/architecture/icons/" target=3D"_bl=
+ank" rel=3D"noopener noreferrer">AWS
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3=E3=82=A2=E3=
+=82=A4=E3=82=B3=E3=83=B3</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod2-=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E3=82=
+=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3">Mod2:
+=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E3=82=BB=E3=82=AD=E3=
+=83=A5=E3=83=AA=E3=83=86=E3=82=A3</h1>
+<ul>
+<li>=E8=B2=AC=E4=BB=BB=E5=85=B1=E6=9C=89=E3=83=A2=E3=83=87=E3=83=AB
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/rethinksharedresponsibi=
+lity/" target=3D"_blank" rel=3D"noopener noreferrer">=E8=B2=AC=E4=BB=BB=E5=
+=85=B1=E6=9C=89=E3=83=A2=E3=83=87=E3=83=AB=E3=81=A8=E3=81=AF=E4=BD=95=E3=81=
+=8B=E3=80=81=E3=82=92=E6=94=B9=E3=82=81=E3=81=A6=E8=80=83=E3=81=88=E3=82=8B
+| Amazon Web Services =E3=83=96=E3=83=AD=E3=82=B0</a></li>
+</ul></li>
+<li>IAM
+<ul>
+<li>=E3=83=89=E3=82=AD=E3=83=A5=E3=83=A1=E3=83=B3=E3=83=88: <a href=3D"http=
+s://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html" tar=
+get=3D"_blank" rel=3D"noopener noreferrer">IAM
+=E3=81=AE=E3=83=99=E3=82=B9=E3=83=88=E3=83=97=E3=83=A9=E3=82=AF=E3=83=86=E3=
+=82=A3=E3=82=B9</a></li>
+<li>=E3=83=8F=E3=83=B3=E3=82=BA=E3=82=AA=E3=83=B3: <a href=3D"https://githu=
+b.com/tomofuminijo/aws-handson-labs/blob/master/RootUserMFA/howtoconfigurem=
+fa.md" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=83=AB=E3=83=BC=E3=83=88=E3=83=A6=E3=83=BC=E3=82=B6=E3=81=ABMFA =E3=82=
+=92=E8=A8=AD=E5=AE=9A=E3=81=99=E3=82=8B</a></li>
+<li>(Advanced) Nijot =E3=83=96=E3=83=AD=E3=82=B0: <a href=3D"https://blog.n=
+ijot.com/aws/aws-cli-mfa-force-setting/" target=3D"_blank" rel=3D"noopener =
+noreferrer">AWS CLI =E3=81=A7
+MFA =E5=BF=85=E9=A0=88=E3=81=AE=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E5=88=
+=B6=E5=BE=A1=E3=82=92=E8=A8=AD=E5=AE=9A</a></li>
+<li>(Advanced) Nijot =E3=83=96=E3=83=AD=E3=82=B0: <a href=3D"https://blog.n=
+ijot.com/aws/self-enabled-mfa-iam-policy/" target=3D"_blank" rel=3D"noopene=
+r noreferrer">MFA
+=E5=BF=85=E9=A0=88=E7=92=B0=E5=A2=83=E3=81=A7=E3=82=82=E3=82=BB=E3=83=AB=E3=
+=83=95=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=A7MFA =E3=82=92=E6=9C=89=
+=E5=8A=B9=E5=8C=96=E3=81=99=E3=82=8BIAM =E3=83=9D=E3=83=AA=E3=82=B7=E3=83=
+=BC=E4=BE=8B</a></li>
+</ul></li>
+<li>=E3=83=9E=E3=83=AB=E3=83=81=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=
+=88=E7=AE=A1=E7=90=86
+<ul>
+<li><a href=3D"https://docs.aws.amazon.com/whitepapers/latest/organizing-yo=
+ur-aws-environment/organizing-your-aws-environment.html" target=3D"_blank" =
+rel=3D"noopener noreferrer">Organizing
+Your AWS Environment Using Multiple Accounts</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/builders-flash/202007/multi-accoun=
+ts-best-practice/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=83=9E=E3=83=AB=E3=83=81=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E7=
+=AE=A1=E7=90=86=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=99=E3=82=8B=E3=83=99=E3=82=
+=B9=E3=83=88=E3=83=97=E3=83=A9=E3=82=AF=E3=83=86=E3=82=A3=E3=82=B9=E3=81=A8=
+=E3=81=AF ? - builders.flash=E2=98=86
+- =E5=A4=89=E5=8C=96=E3=82=92=E6=B1=82=E3=82=81=E3=82=8B=E3=83=87=E3=83=99=
+=E3=83=AD=E3=83=83=E3=83=91=E3=83=BC=E3=82=92=E5=BF=9C=E6=8F=B4=E3=81=99=E3=
+=82=8B=E3=82=A6=E3=82=A7=E3=83=96=E3=83=9E=E3=82=AC=E3=82=B8=E3=83=B3 | AWS=
+</a></li>
+<li>=E4=BA=8B=E4=BE=8B CyberAgent =E6=A7=98: <a href=3D"https://www.slidesh=
+are.net/cyberagent/awssummit2018-ca-kakishimaazuma" target=3D"_blank" rel=
+=3D"noopener noreferrer">=E3=80=8C=E3=81=93=E3=82=8C=E5=8D=B1=E3=81=AA=E3=
+=81=84=E8=A8=AD=E5=AE=9A=E3=81=98=E3=82=83=E3=81=AA=E3=81=84=E3=81=A7=E3=81=
+=97=E3=82=87=E3=81=86=E3=81=8B=E3=80=8D=E3=81=A8=E3=83=92=E3=82=A2=E3=83=AA=
+=E3=83=B3=E3=82=B0=E3=81=99=E3=82=8B=E3=81=9F=E3=82=81=E3=81=AE=E4=BB=95=E7=
+=B5=84=E3=81=BF
+@AWS Summit Tokyo 2018</a></li>
+</ul></li>
+<li>=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E7=84=A1=E6=96=99=E3=83=87=E3=82=
+=B8=E3=82=BF=E3=83=AB=E3=82=B3=E3=83=BC=E3=82=B9
+<ul>
+<li><a href=3D"https://explore.skillbuilder.aws/learn/course/external/view/=
+elearning/9054/deep-dive-with-security-aws-identity-and-access-management-i=
+am-japanese" target=3D"_blank" rel=3D"noopener noreferrer">Deep
+Dive with Security: AWS Identity and Access Management (IAM)
+(Japanese)</a></li>
+</ul></li>
+<li>=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E8=B3=87=E6=96=99
+<ul>
+<li><a href=3D"https://www.slideshare.net/AmazonWebServicesJapan/20190129-a=
+ws-black-belt-online-seminar-aws-identity-and-access-management-iam-part1" =
+target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Identity and Access Management (IAM) Part1</a></li>
+<li><a href=3D"https://www.slideshare.net/AmazonWebServicesJapan/20190130-a=
+ws-black-belt-online-seminar-aws-identity-and-access-management-aws-iam-par=
+t2" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Identity and Access Management (IAM) Part2</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod3-=E3=83=8D=E3=83=83=E3=83=88=E3=83=AF=E3=83=BC=E3=82=AF-1">Mo=
+d3: =E3=83=8D=E3=83=83=E3=83=88=E3=83=AF=E3=83=BC=E3=82=AF 1</h1>
+<h1 id=3D"mod4-=E3=82=B3=E3=83=B3=E3=83=94=E3=83=A5=E3=83=BC=E3=83=86=E3=82=
+=A3=E3=83=B3=E3=82=B0">Mod4: =E3=82=B3=E3=83=B3=E3=83=94=E3=83=A5=E3=83=BC=
+=E3=83=86=E3=82=A3=E3=83=B3=E3=82=B0</h1>
+<ul>
+<li>EC2 =E3=82=B9=E3=83=9D=E3=83=83=E3=83=88=E3=82=A4=E3=83=B3=E3=82=B9=E3=
+=82=BF=E3=83=B3=E3=82=B9
+<ul>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://aws.amazon.com/jp/ec2/spot/testi=
+monials/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=81=8A=E5=AE=A2=
+=E6=A7=98 - Amazon
+EC2 =E3=82=B9=E3=83=9D=E3=83=83=E3=83=88 | AWS</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/how-dena-succesfully-ap=
+plied-ec2-spot-on-production-and-reference-architecture-using-containers/" =
+target=3D"_blank" rel=3D"noopener noreferrer">=E6=A0=AA=E5=BC=8F=E4=BC=9A=
+=E7=A4=BE=E3=83=87=E3=82=A3=E3=83=BC=E3=83=BB=E3=82=A8=E3=83=8C=E3=83=BB=E3=
+=82=A8=E3=83=BC=E6=A7=98=E3=81=AB=E3=81=8A=E3=81=91=E3=82=8BEC2=E3=82=B9=E3=
+=83=9D=E3=83=83=E3=83=88=E3=82=A4=E3=83=B3=E3=82=B9=E3=82=BF=E3=83=B3=E3=82=
+=B9=E3=81=AE=E5=A4=A7=E8=A6=8F=E6=A8=A1=E6=B4=BB=E7=94=A8=E3=81=AE=E3=81=9F=
+=E3=82=81=E3=81=AE=E5=B7=A5=E5=A4=AB=E3=81=A8=E3=82=B3=E3=83=B3=E3=83=86=E3=
+=83=8A=E6=8A=80=E8=A1=93=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E8=A8=AD=E8=A8=
+=88=E4=BE=8B=E3=81=AE=E7=B4=B9=E4=BB=8B</a>
+<ul>
+<li><a href=3D"https://engineering.dena.com/blog/2019/08/cloud-qct-manageme=
+nt/#%E3%82%B9%E3%83%9D%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B=
+F%E3%83%B3%E3%82%B9%E3%81%B8%E3%81%AE%E6%8C%91%E6%88%A6" target=3D"_blank" =
+rel=3D"noopener noreferrer">DeNA
+=E3=81=AE QCT =E3=83=9E=E3=83=8D=E3=82=B8=E3=83=A1=E3=83=B3=E3=83=88 | BLOG=
+ - DeNA Engineering</a></li>
+</ul></li>
+</ul></li>
+<li>EBS
+<ul>
+<li><a href=3D"https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/eb=
+s-volume-types.html" target=3D"_blank" rel=3D"noopener noreferrer">Amazon
+EBS =E3=83=9C=E3=83=AA=E3=83=A5=E3=83=BC=E3=83=A0=E3=81=AE=E7=A8=AE=E9=A1=
+=9E - Amazon Elastic Compute Cloud</a></li>
+</ul></li>
+<li>HPC
+<ul>
+<li><a href=3D"https://d1.awsstatic.com/webinars/jp/pdf/services/20201209_B=
+lackBelt_HPC_on_AWS.pdf" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Black Belt Online Seminar | HPC on AWS</a> - <a href=3D"https://youtu.be/3U=
+FYcFlj83Y" target=3D"_blank" rel=3D"noopener noreferrer">=E5=8B=95=E7=94=BB=
+</a></li>
+</ul></li>
+<li>=E3=82=B5=E3=83=BC=E3=83=90=E3=83=AC=E3=82=B9=E4=BA=8B=E4=BE=8B
+<ul>
+<li><a href=3D"https://www.businessinsider.jp/post-192845" target=3D"_blank=
+" rel=3D"noopener noreferrer">=E3=83=80=E3=82=A4=E3=82=BD=E3=83=BC=E5=BF=AB=
+=E9=80=B2=E6=92=83=E3=82=92=E6=94=AF=E3=81=88=E3=82=8B=EF=BD=A2=E6=AF=8E=E6=
+=99=A9105=E5=84=84=E4=BB=B6=E3=83=87=E3=83=BC=E3=82=BF=E5=87=A6=E7=90=86=EF=
+=BD=A3=E3=81=99=E3=82=8B=E9=9C=80=E8=A6=81=E4=BA=88=E6=B8=AC=E3=82=B7=E3=82=
+=B9=E3=83=86=E3=83=A0=E3=81=AF=E3=81=A9=E3=81=86=E7=94=9F=E3=81=BE=E3=82=8C=
+=E3=81=9F=E3=81=8B
+| BUSINESS INSIDER JAPAN</a></li>
+<li><a href=3D"https://speakerdeck.com/ikait/serverless-architecture-suppor=
+ts-nikkeis-paper-viewer" target=3D"_blank" rel=3D"noopener noreferrer">=E7=
+=B4=99=E9=9D=A2=E3=83=93=E3=83=A5=E3=83=BC=E3=82=A2=E3=83=BC=E3=82=92=E6=94=
+=AF=E3=81=88=E3=82=8B
+=E3=82=B5=E3=83=BC=E3=83=90=E3=83=BC=E3=83=AC=E3=82=B9=E3=82=A2=E3=83=BC=E3=
+=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3 / serverless architecture suppor=
+ts Nikkei=E2=80=99s
+paper viewer - Speaker Deck</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/asahi-shimb=
+un/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9A=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=
+=A4=BE =E6=9C=9D=E6=97=A5=E6=96=B0=E8=81=9E=E7=A4=BE | AWS</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod5-=E3=82=B9=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B8">Mod5: =E3=82=
+=B9=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B8</h1>
+<ul>
+<li>=E3=82=B9=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B8=E3=81=AE=E7=90=86=E8=A7=
+=A3=E3=82=92=E6=B7=B1=E3=82=81=E3=82=8B
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/builders-flash/202110/way-to-learn=
+-storage/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=B9=E3=83=88=
+=E3=83=AC=E3=83=BC=E3=82=B8=E3=81=AE=E5=8B=89=E5=BC=B7=E6=96=B9=E6=B3=95=E3=
+=82=92=E8=81=9E=E3=81=84=E3=81=A6=E3=81=BF=E3=81=9F=E3=80=82
+- =E5=A4=89=E5=8C=96=E3=82=92=E6=B1=82=E3=82=81=E3=82=8B=E3=83=87=E3=83=99=
+=E3=83=AD=E3=83=83=E3=83=91=E3=83=BC=E3=82=92=E5=BF=9C=E6=8F=B4=E3=81=99=E3=
+=82=8B=E3=82=A6=E3=82=A7=E3=83=96=E3=83=9E=E3=82=AC=E3=82=B8=E3=83=B3 | AWS=
+</a></li>
+</ul></li>
+<li>S3
+<ul>
+<li>=E6=96=99=E9=87=91: <a href=3D"https://aws.amazon.com/jp/s3/pricing/" t=
+arget=3D"_blank" rel=3D"noopener noreferrer">=E6=96=99=E9=87=91 - Amazon
+S3 =EF=BD=9CAWS</a></li>
+<li><a href=3D"https://aws.amazon.com/s3/storage-classes/" target=3D"_blank=
+" rel=3D"noopener noreferrer">=E3=82=B9=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B8=
+=E3=82=AF=E3=83=A9=E3=82=B9 -
+Amazon S3 =EF=BD=9CAWS</a></li>
+<li><a href=3D"https://calculator.aws/#/estimate?id=3D00a79d34dfd4772420522=
+d44959a81ac5cfb6014" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=
+=B9=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B8=E3=82=AF=E3=83=A9=E3=82=B9=E6=96=99=
+=E9=87=91=E6=AF=94=E8=BC=83</a></li>
+</ul></li>
+<li>=E6=96=99=E9=87=91=E8=A8=88=E7=AE=97
+<ul>
+<li><a href=3D"https://calculator.aws/#/" target=3D"_blank" rel=3D"noopener=
+ noreferrer">AWS Pricing Calculator</a></li>
+</ul></li>
+<li>EFS/FSx
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/access-file-shares-on-a=
+mazon-fsx-for-windows-file-server-from-a-linux-environment/" target=3D"_bla=
+nk" rel=3D"noopener noreferrer">Linux
+=E7=92=B0=E5=A2=83=E3=81=8B=E3=82=89 Amazon FSx for Windows File Server =E3=
+=81=AE=E3=83=95=E3=82=A1=E3=82=A4=E3=83=AB=E5=85=B1=E6=9C=89=E3=81=AB=E3=82=
+=A2=E3=82=AF=E3=82=BB=E3=82=B9=E3=81=99=E3=82=8B
+| Amazon Web Services =E3=83=96=E3=83=AD=E3=82=B0</a></li>
+</ul></li>
+<li>=E4=BA=8B=E4=BE=8B
+<ul>
+<li>AWS S3/ S3 Glacier: <a href=3D"https://aws.amazon.com/jp/solutions/case=
+-studies/tv-tokyo/" target=3D"_blank" rel=3D"noopener noreferrer">AWS S3
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9A=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=
+=A4=BE=E3=83=86=E3=83=AC=E3=83=93=E6=9D=B1=E4=BA=AC | AWS</a></li>
+<li>AWS Snowball: <a href=3D"https://d1.awsstatic.com/events/jp/2017/summit=
+/slide/D2T6-4.pdf" target=3D"_blank" rel=3D"noopener noreferrer">=E9=9F=B3=
+=E6=A5=BD=E9=85=8D=E4=BF=A1=E3=83=97=E3=83=A9=E3=83=83=E3=83=88=E3=83=95=E3=
+=82=A9=E3=83=BC=E3=83=A0=E3=81=A8AWS
+Snowball=E3=82=92=E5=88=A9=E7=94=A8=E3=81=97=E3=81=9F=E3=83=87=E3=83=BC=E3=
+=82=BF=E7=A7=BB=E8=A1=8C</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod6-=E3=83=87=E3=83=BC=E3=82=BF=E3=83=99=E3=83=BC=E3=82=B9">Mod6=
+: =E3=83=87=E3=83=BC=E3=82=BF=E3=83=99=E3=83=BC=E3=82=B9</h1>
+<ul>
+<li>AWS =E3=81=8C=E6=8F=90=E4=BE=9B=E3=81=99=E3=82=8B=E3=83=87=E3=83=BC=E3=
+=82=BF=E3=83=99=E3=83=BC=E3=82=B9=E3=81=AE=E6=95=B4=E7=90=86
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/products/databases/" target=3D"_bl=
+ank" rel=3D"noopener noreferrer">AWS
+=E3=81=8C=E6=8F=90=E4=BE=9B=E3=81=99=E3=82=8B=E3=82=AF=E3=83=A9=E3=82=A6=E3=
+=83=89=E3=83=87=E3=83=BC=E3=82=BF=E3=83=99=E3=83=BC=E3=82=B9 | AWS</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/aws-training-planning-a=
+nd-desigining-database/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0 : =E6=96=B0=E3=82=B3=
+=E3=83=BC=E3=82=B9=E3=80=8CPlanning and Designing Databases on
+AWS=E3=80=8D=E3=82=926=E6=9C=88=E3=81=8B=E3=82=89=E5=8F=97=E8=AC=9B=E3=81=
+=A7=E3=81=8D=E3=81=BE=E3=81=99</a></li>
+<li><a href=3D"https://pages.awscloud.com/rs/112-TZM-766/images/AWS-01_AWS_=
+Summit_Online_2020_DAT01.pdf" target=3D"_blank" rel=3D"noopener noreferrer"=
+>=E4=BB=8A=E3=81=A0=E3=81=8B=E3=82=89=E7=9F=A5=E3=82=8A=E3=81=9F=E3=81=84AW=
+S
+=E3=81=AE=E3=83=87=E3=83=BC=E3=82=BF=E3=83=99=E3=83=BC=E3=82=B9 2020 =E5=9F=
+=BA=E7=A4=8E</a></li>
+</ul></li>
+<li>Amazon Aurora =E4=BA=8B=E4=BE=8B
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/nintendo-de=
+na-2020/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9A=E4=BB=BB=E5=A4=A9=E5=A0=82=E6=
+=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE=E3=80=81=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=
+=BE=E3=83=87=E3=82=A3=E3=83=BC=E3=83=BB=E3=82=A8=E3=83=8C=E3=83=BB=E3=82=A8=
+=E3=83=BC | AWS</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/sbi-sumishi=
+n-net-bank/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9A=E4=BD=8F=E4=BF=A1SBI=E3=83=8D=
+=E3=83=83=E3=83=88=E9=8A=80=E8=A1=8C=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE | =
+AWS</a></li>
+</ul></li>
+<li>DynamoDB =E3=83=A6=E3=83=BC=E3=82=B9=E3=82=B1=E3=83=BC=E3=82=B9
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/how-to-determine-if-ama=
+zon-dynamodb-is-appropriate-for-your-needs-and-then-plan-your-migration/" t=
+arget=3D"_blank" rel=3D"noopener noreferrer">Amazon
+DynamoDB =E3=81=8C=E3=83=8B=E3=83=BC=E3=82=BA=E3=81=AB=E5=90=88=E3=81=86=E3=
+=81=8B=E3=81=A9=E3=81=86=E3=81=8B=E3=82=92=E5=88=A4=E6=96=AD=E3=81=97=E3=80=
+=81=E7=A7=BB=E8=A1=8C=E3=82=92=E8=A8=88=E7=94=BB=E3=81=99=E3=82=8B=E6=96=B9=
+=E6=B3=95</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/amazon-dynamodb-ad-tech=
+-use-cases-and-design-patterns/" target=3D"_blank" rel=3D"noopener noreferr=
+er">Amazon
+DynamoDB: =E3=82=A2=E3=83=89=E3=83=86=E3=83=83=E3=82=AF=E3=81=AE=E3=83=A6=
+=E3=83=BC=E3=82=B9=E3=82=B1=E3=83=BC=E3=82=B9=E3=81=A8=E8=A8=AD=E8=A8=88=E3=
+=83=91=E3=82=BF=E3=83=BC=E3=83=B3</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/amazon-dynamodb-gaming-=
+use-cases-and-design-patterns/" target=3D"_blank" rel=3D"noopener noreferre=
+r">Amazon
+DynamoDB: =E3=82=B2=E3=83=BC=E3=83=A0=E3=81=AE=E3=83=A6=E3=83=BC=E3=82=B9=
+=E3=82=B1=E3=83=BC=E3=82=B9=E3=81=A8=E8=A8=AD=E8=A8=88=E3=83=91=E3=82=BF=E3=
+=83=BC=E3=83=B3</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://d0.awsstatic.com/events/jp/2017/=
+summit/slide/D3T5-3.pdf" target=3D"_blank" rel=3D"noopener noreferrer">=E3=
+=82=B5=E3=83=BC=E3=83=90=E3=83=AC=E3=82=B9=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=
+=86=E3=82=AF=E3=83=81=E3=83=A3=E3=81=A7=E5=AE=9F=E7=8F=BE=E3=81=97=E3=81=9F=
+=E3=80=8EM-1=E3=82=B0=E3=83=A9=E3=83=B3=E3=83=97=E3=83=AA=E3=80=8F=E6=95=97=
+=E8=80=85=E5=BE=A9=E6=B4=BB=E6=88=A6=E6=8A=95=E7=A5=A8=E3=82=B7=E3=82=B9=E3=
+=83=86=E3=83=A0</a></li>
+</ul></li>
+<li>RDS / DynamoDB =E3=81=AE=E9=81=95=E3=81=84
+<ul>
+<li><a href=3D"https://qiita.com/amemolee/items/994f464dba1f94f2855c" targe=
+t=3D"_blank" rel=3D"noopener noreferrer">RDS=E3=81=A8DynamoDB=E3=82=92CAP=
+=E5=AE=9A=E7=90=86=E3=80=81ACID=E3=80=81BASE=E3=82=92=E4=BD=BF=E3=81=A3=E3=
+=81=A6=E6=95=B4=E7=90=86=E3=81=99=E3=82=8B
+- Qiita</a></li>
+</ul></li>
+<li>Redshift =E4=BA=8B=E4=BE=8B
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/ana/" targe=
+t=3D"_blank" rel=3D"noopener noreferrer">=E5=85=A8=E6=97=A5=E6=9C=AC=E7=A9=
+=BA=E8=BC=B8=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/dcmholdings=
+-classmethod/" target=3D"_blank" rel=3D"noopener noreferrer">=EF=BC=A4=EF=
+=BC=A3=EF=BC=AD=E3=83=9B=E3=83=BC=E3=83=AB=E3=83=87=E3=82=A3=E3=83=B3=E3=82=
+=B0=E3=82=B9=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE</a></li>
+</ul></li>
+<li>AWS Database Migration Service
+<ul>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://www.youtube.com/watch?v=3DvPF9l9=
+OmiXE" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+re:Invent 2019: How Amazon.com migrated its applications from Oracle to
+AWS databases (DAT359)</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://speakerdeck.com/soudai/aws-dms" =
+target=3D"_blank" rel=3D"noopener noreferrer">RDB=E3=83=AA=E3=83=95=E3=82=
+=A1=E3=82=AF=E3=82=BF=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=A8=E7=95=B0=E7=A8=AE=
+=E9=96=93DB=E7=A7=BB=E8=A1=8C=E3=81=AE=E6=88=A6=E3=81=84
+/ AWS-DMS</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://cloud.watch.impress.co.jp/docs/n=
+ews/1173107.html" target=3D"_blank" rel=3D"noopener noreferrer">AWS=E3=81=
+=8C=E3=83=87=E3=83=BC=E3=82=BF=E3=83=99=E3=83=BC=E3=82=B9=E3=81=AE=E3=82=AF=
+=E3=83=A9=E3=82=A6=E3=83=89=E7=A7=BB=E8=A1=8C=E6=94=AF=E6=8F=B4=E7=AD=96=E3=
+=82=92=E8=AA=AC=E6=98=8E=E3=80=81=E4=BD=8F=E4=BF=A1SBI=E3=83=8D=E3=83=83=E3=
+=83=88=E9=8A=80=E8=A1=8C=E3=81=AE=E4=BA=8B=E4=BE=8B=E7=B4=B9=E4=BB=8B=E3=82=
+=82
+- =E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89 Watch</a></li>
+<li>=E3=83=AF=E3=83=BC=E3=82=AF=E3=82=B7=E3=83=A7=E3=83=83=E3=83=97: <a hre=
+f=3D"https://catalog.us-east-1.prod.workshops.aws/v2/workshops/77bdff4f-2d9=
+e-4d68-99ba-248ea95b3aca/en-US/" target=3D"_blank" rel=3D"noopener noreferr=
+er">AWS
+Database Migration Workshop</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod7-=E3=83=A2=E3=83=8B=E3=82=BF=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=
+=A8=E3=82=B9=E3=82=B1=E3=83=BC=E3=83=AA=E3=83=B3=E3=82=B0">Mod7:
+=E3=83=A2=E3=83=8B=E3=82=BF=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=A8=E3=82=B9=E3=
+=82=B1=E3=83=BC=E3=83=AA=E3=83=B3=E3=82=B0</h1>
+<ul>
+<li>Auto Scaling =E4=BA=8B=E4=BE=8B
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/case-studies/akindo-sush=
+iro/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9A=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=
+=A4=BE =E3=81=82=E3=81=8D=E3=82=93=E3=81=A9=E3=82=B9=E3=82=B7=E3=83=AD=E3=
+=83=BC | AWS</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod8-=E3=82=AA=E3=83=BC=E3=83=88=E3=83=A1=E3=83=BC=E3=82=B7=E3=83=
+=A7=E3=83=B3">Mod8: =E3=82=AA=E3=83=BC=E3=83=88=E3=83=A1=E3=83=BC=E3=82=B7=
+=E3=83=A7=E3=83=B3</h1>
+<ul>
+<li>CoudFormation
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/solutions/" target=3D"_blank" rel=
+=3D"noopener noreferrer">AWS
+=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=83=A9=E3=
+=82=A4=E3=83=96=E3=83=A9=E3=83=AA</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/quickstart/" target=3D"_blank" rel=
+=3D"noopener noreferrer">AWS
+=E3=82=AF=E3=82=A4=E3=83=83=E3=82=AF=E3=82=B9=E3=82=BF=E3=83=BC=E3=83=88</a=
+></li>
+<li><a href=3D"https://aws.amazon.com/jp/cloudformation/aws-cloudformation-=
+templates/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=B5=E3=83=
+=B3=E3=83=97=E3=83=AB=E3=82=B3=E3=83=BC=E3=83=89
+&amp; =E3=83=86=E3=83=B3=E3=83=97=E3=83=AC=E3=83=BC=E3=83=88 - AWS CloudFor=
+mation | AWS</a></li>
+<li><a href=3D"https://github.com/aws-samples/aws-refarch-wordpress" target=
+=3D"_blank" rel=3D"noopener noreferrer">Hosting
+WordPress on AWS</a></li>
+</ul></li>
+<li>CloudFormation =E3=83=86=E3=83=B3=E3=83=97=E3=83=AC=E3=83=BC=E3=83=88=
+=E3=82=92=E8=87=AA=E5=8B=95=E7=94=9F=E6=88=90=E3=81=99=E3=82=8B3rd Party =
+=E3=83=84=E3=83=BC=E3=83=AB
+<ul>
+<li><a href=3D"https://chrome.google.com/webstore/detail/console-recorder-f=
+or-aws/ganlhgooidfbijjidcpkeaohjnkeicba" target=3D"_blank" rel=3D"noopener =
+noreferrer">Console
+Recorder for AWS - Chrome =E3=82=A6=E3=82=A7=E3=83=96=E3=82=B9=E3=83=88=E3=
+=82=A2</a></li>
+<li><a href=3D"https://former2.com/" target=3D"_blank" rel=3D"noopener nore=
+ferrer">Former2</a></li>
+</ul></li>
+<li>Systems Manager
+<ul>
+<li><a href=3D"https://d1.awsstatic.com/webinars/jp/pdf/services/20200212_A=
+WSBlackBelt_SystemsManager_0214.pdf" target=3D"_blank" rel=3D"noopener nore=
+ferrer">[AWS
+Black Belt Online Seminar]AWS Systems Manager</a></li>
+</ul></li>
+<li>DevOps =E3=82=92=E5=AD=A6=E3=81=B6=E3=81=AA=E3=82=89
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/training/classroom/devops-engineer=
+ing-on-aws/" target=3D"_blank" rel=3D"noopener noreferrer">DevOps
+Engineering on AWS</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod9-=E3=82=B3=E3=83=B3=E3=83=86=E3=83=8A">Mod9: =E3=82=B3=E3=83=
+=B3=E3=83=86=E3=83=8A</h1>
+<ul>
+<li>=E3=83=9E=E3=82=A4=E3=82=AF=E3=83=AD=E3=82=B5=E3=83=BC=E3=83=93=E3=82=
+=B9=E3=81=B8=E3=81=AE=E5=8F=96=E3=82=8A=E7=B5=84=E3=81=BF
+<ul>
+<li><a href=3D"https://techlife.cookpad.com/entry/2018-odaiba-strategy" tar=
+get=3D"_blank" rel=3D"noopener noreferrer">=E3=82=AF=E3=83=83=E3=82=AF=E3=
+=83=91=E3=83=83=E3=83=89=E5=9F=BA=E5=B9=B9=E3=82=B7=E3=82=B9=E3=83=86=E3=83=
+=A0=E3=81=AEmicroservices=E5=8C=96=E6=88=A6=E7=95=A5
+=E3=80=9C=E3=81=8A=E5=8F=B0=E5=A0=B4=E3=83=97=E3=83=AD=E3=82=B8=E3=82=A7=E3=
+=82=AF=E3=83=881=E5=B9=B4=E5=8D=8A=E3=81=AE=E8=BB=8C=E8=B7=A1=E3=80=9C</a><=
+/li>
+<li><a href=3D"https://speakerdeck.com/adorechic/how-cookpad-shifts-to-micr=
+oservices" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=AF=E3=83=83=
+=E3=82=AF=E3=83=91=E3=83=83=E3=83=89=E3=81=8C=E3=81=A9=E3=81=AE=E3=82=88=E3=
+=81=86=E3=81=ABMicroservices=E3=81=97=E3=81=A6=E3=81=8D=E3=81=9F=E3=81=8B/H=
+ow
+Cookpad shifts to Microservices</a></li>
+<li><a href=3D"https://engineering.mercari.com/blog/entry/2018-12-01-200159=
+/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=83=9E=E3=82=A4=E3=82=
+=AF=E3=83=AD=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=83=81=E3=83=BC=E3=83=A0=
+=E7=B7=A8=E6=88=90=E3=81=AE=E3=83=99=E3=82=B9=E3=83=88=E3=83=97=E3=83=A9=E3=
+=82=AF=E3=83=86=E3=82=A3=E3=82=B9=E3=81=A8=E3=83=A1=E3=83=AB=E3=82=AB=E3=83=
+=AA=E3=81=A7=E3=81=AE=E6=A7=8B=E6=83=B3
+| =E3=83=A1=E3=83=AB=E3=82=AB=E3=83=AA=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=
+=E3=82=A2=E3=83=AA=E3=83=B3=E3=82=B0</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://aws.amazon.com/jp/solutions/case=
+-studies/paypay/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=B0=8E=E5=85=A5=E4=BA=8B=E4=BE=8B=EF=BC=9APayPay=E6=A0=AA=E5=BC=8F=E4=BC=
+=9A=E7=A4=BE | AWS</a></li>
+</ul></li>
+<li>AWS X-Ray
+<ul>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://techlife.cookpad.com/entry/2017/=
+09/06/115710" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=AF=E3=83=
+=83=E3=82=AF=E3=83=91=E3=83=83=E3=83=89=E3=81=A8=E5=88=86=E6=95=A3=E3=83=88=
+=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=B3=E3=82=B0
+- =E3=82=AF=E3=83=83=E3=82=AF=E3=83=91=E3=83=83=E3=83=89=E9=96=8B=E7=99=BA=
+=E8=80=85=E3=83=96=E3=83=AD=E3=82=B0</a></li>
+</ul></li>
+<li>=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E6=9B=B8=E7=B1=8D
+<ul>
+<li><a href=3D"https://www.oreilly.co.jp/books/9784873117607/" target=3D"_b=
+lank" rel=3D"noopener noreferrer">=E3=83=9E=E3=82=A4=E3=82=AF=E3=83=AD=E3=
+=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=
+=AF=E3=83=81=E3=83=A3</a></li>
+</ul></li>
+<li>=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E3=83=8F=E3=83=B3=E3=82=BA=E3=82=
+=AA=E3=83=B3
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/getting-started/projects/break-mon=
+olith-app-microservices-ecs-docker-ec2/" target=3D"_blank" rel=3D"noopener =
+noreferrer">Amazon
+Elastic Container Service=E3=80=81Docker=E3=80=81=E3=81=8A=E3=82=88=E3=81=
+=B3 Amazon EC2
+=E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=83=A2=E3=83=8E=E3=83=AA=E3=
+=82=B7=E3=83=83=E3=82=AF=E3=82=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=E3=82=
+=B7=E3=83=A7=E3=83=B3=E3=82=92=E3=83=9E=E3=82=A4=E3=82=AF=E3=83=AD=E3=82=B5=
+=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AB=E5=88=86=E5=89=B2=E3=81=99=E3=82=8B=E6=
+=96=B9=E6=B3=95 |
+AWS</a></li>
+<li><a href=3D"https://ecsworkshop.com/" target=3D"_blank" rel=3D"noopener =
+noreferrer">Amazon ECS Workshop :: Amazon ECS
+Workshop</a></li>
+<li><a href=3D"https://www.eksworkshop.com/" target=3D"_blank" rel=3D"noope=
+ner noreferrer">Amazon EKS Workshop :: Amazon
+EKS Workshop</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod10-=E3=83=8D=E3=83=83=E3=83=88=E3=83=AF=E3=83=BC=E3=82=AF-2">M=
+od10: =E3=83=8D=E3=83=83=E3=83=88=E3=83=AF=E3=83=BC=E3=82=AF 2</h1>
+<ul>
+<li>Direct Connect
+<ul>
+<li>DX location: <a href=3D"https://aws.amazon.com/jp/directconnect/locatio=
+ns/" target=3D"_blank" rel=3D"noopener noreferrer">AWS Direct
+Connect | Find Locations | Amazon Web Services (AWS)</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/directconnect/partners/" target=3D=
+"_blank" rel=3D"noopener noreferrer">Direct
+Connect =E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=BC</a></li>
+</ul></li>
+<li>=E3=83=8D=E3=83=83=E3=83=88=E3=83=AF=E3=83=BC=E3=82=AF=E3=82=92=E8=A9=
+=B3=E3=81=97=E3=81=8F=E5=AD=A6=E3=81=B3=E3=81=9F=E3=81=84
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/training/classroom/advanced-archit=
+ecting-aws/" target=3D"_blank" rel=3D"noopener noreferrer">Advanced
+Architecting on AWS</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod11-=E3=82=B5=E3=83=BC=E3=83=90=E3=83=AC=E3=82=B9">Mod11: =E3=
+=82=B5=E3=83=BC=E3=83=90=E3=83=AC=E3=82=B9</h1>
+<ul>
+<li><p><a href=3D"https://aws.amazon.com/jp/message-queue/" target=3D"_blan=
+k" rel=3D"noopener noreferrer">=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=
+=B8=E3=82=AD=E3=83=A5=E3=83=BC=E3=81=A8=E3=81=AF?</a></p></li>
+<li><p>SQS</p>
+<ul>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://d0.awsstatic.com/events/jp/2017/=
+summit/devday/D2T8-5.pdf" target=3D"_blank" rel=3D"noopener noreferrer">San=
+san=E3=81=8C=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=83=B3=E3=82=B0
+(SQS) =E3=81=A7=E3=82=B9=E3=82=B1=E3=83=BC=E3=83=A9=E3=83=93=E3=83=AA=E3=83=
+=86=E3=82=A3=E3=82=92=E6=89=8B=E3=81=AB=E5=85=A5=E3=82=8C=E3=81=9F=E8=A9=B1=
+</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://d0.awsstatic.com/events/jp/2017/=
+summit/slide/D3T5-2.pdf" target=3D"_blank" rel=3D"noopener noreferrer">=E3=
+=82=AF=E3=83=83=E3=82=AF=E3=83=91=E3=83=83=E3=83=89=E3=81=AE=E6=A9=9F=E6=A2=
+=B0=E5=AD=A6=E7=BF=92=E3=82=92=E6=94=AF=E3=81=88=E3=82=8B=E5=9F=BA=E7=9B=A4=
+=E3=81=AE=E3=81=A4=E3=81=8F=E3=82=8A=E3=81=8B=E3=81=9F</a></li>
+</ul></li>
+<li><p>=E3=82=B5=E3=83=BC=E3=83=90=E3=83=AC=E3=82=B9=E6=83=85=E5=A0=B1</p>
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/serverless/patterns/start-serverle=
+ss/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=B5=E3=83=BC=E3=83=
+=90=E3=83=BC=E3=83=AC=E3=82=B9=E3=82=92=E5=A7=8B=E3=82=81=E3=82=88=E3=81=86=
+</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/serverless/patterns/serverless-pat=
+tern/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=B5=E3=83=BC=E3=
+=83=90=E3=83=BC=E3=83=AC=E3=82=B9=E3=83=91=E3=82=BF=E3=83=BC=E3=83=B3</a></=
+li>
+</ul></li>
+</ul>
+<h1 id=3D"mod12-=E3=82=A8=E3=83=83=E3=82=B8=E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9">Mod12: =E3=82=A8=E3=83=83=E3=82=B8=E3=82=B5=E3=83=BC=E3=83=93=E3=82=
+=B9</h1>
+<ul>
+<li>Global Accelerator
+<ul>
+<li><a href=3D"https://speedtest.globalaccelerator.aws/#/" target=3D"_blank=
+" rel=3D"noopener noreferrer">AWS Global
+Accelerator Speed Comparison</a></li>
+<li>=E4=BA=8B=E4=BE=8B: <a href=3D"https://aws.amazon.com/jp/solutions/case=
+-studies/smartnews-2021/" target=3D"_blank" rel=3D"noopener noreferrer">Sma=
+rtNews</a></li>
+</ul></li>
+<li>Anycast
+<ul>
+<li><a href=3D"https://en.wikipedia.org/wiki/Anycast" target=3D"_blank" rel=
+=3D"noopener noreferrer">Anycast -
+Wikipedia</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"mod13-=E3=83=90=E3=83=83=E3=82=AF=E3=82=A2=E3=83=83=E3=83=97=E3=
+=81=A8=E5=BE=A9=E6=97=A7">Mod13: =E3=83=90=E3=83=83=E3=82=AF=E3=82=A2=E3=83=
+=83=E3=83=97=E3=81=A8=E5=BE=A9=E6=97=A7</h1>
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/disaster-recovery-dr-ar=
+chitecture-on-aws-part-1-strategies-for-recovery-in-the-cloud/" target=3D"_=
+blank" rel=3D"noopener noreferrer">AWS
+=E3=81=A7=E3=81=AE=E3=83=87=E3=82=A3=E3=82=B6=E3=82=B9=E3=82=BF=E3=83=AA=E3=
+=82=AB=E3=83=90=E3=83=AA (DR)
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3=E3=80=81=E3=
+=83=91=E3=83=BC=E3=83=88I=EF=BC=9A=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=
+=81=A7=E3=81=AE=E3=83=AA=E3=82=AB=E3=83=90=E3=83=AA=E3=81=AE=E6=88=A6=E7=95=
+=A5</a></li>
+</ul>
+<h1 id=3D"=E3=82=B3=E3=83=BC=E3=82=B9=E3=81=AE=E3=81=BE=E3=81=A8=E3=82=81">=
+=E3=82=B3=E3=83=BC=E3=82=B9=E3=81=AE=E3=81=BE=E3=81=A8=E3=82=81</h1>
+<h2 id=3D"=E4=BB=8A=E5=BE=8C=E3=81=AE=E5=AD=A6=E7=BF=92=E6=96=B9=E6=B3=95=
+=E3=81=AB=E9=96=A2=E3=81=97=E3=81=A6">=E4=BB=8A=E5=BE=8C=E3=81=AE=E5=AD=A6=
+=E7=BF=92=E6=96=B9=E6=B3=95=E3=81=AB=E9=96=A2=E3=81=97=E3=81=A6</h2>
+<ul>
+<li>AWS Training =E3=83=9D=E3=83=BC=E3=82=BF=E3=83=AB (=E6=9C=89=E5=84=9F=
+=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0/=E8=AA=8D=E5=AE=9A)
+<ul>
+<li><a href=3D"https://www.aws.training/" target=3D"_blank" rel=3D"noopener=
+ noreferrer">https://www.aws.training/</a></li>
+</ul></li>
+<li>=E7=84=A1=E6=96=99=E3=83=87=E3=82=B8=E3=82=BF=E3=83=AB=E3=83=88=E3=83=
+=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0
+<ul>
+<li><a href=3D"https://explore.skillbuilder.aws/" target=3D"_blank" rel=3D"=
+noopener noreferrer">AWS Skill
+Builder</a></li>
+</ul></li>
+<li>=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E4=BA=BA=E6=9D=90=E8=82=B2=E6=88=
+=90=E3=81=AE=E5=BF=85=E8=A6=81=E6=80=A7
+<ul>
+<li><a href=3D"https://www.gartner.co.jp/ja/newsroom/press-releases/pr-2021=
+1118" target=3D"_blank" rel=3D"noopener noreferrer">Gartner=E3=80=812022=E5=
+=B9=B4=E3=81=AB=E5=90=91=E3=81=91=E3=81=A6=E6=97=A5=E6=9C=AC=E4=BC=81=E6=A5=
+=AD=E3=81=8C=E6=B3=A8=E7=9B=AE=E3=81=99=E3=81=B9=E3=81=8D=E3=82=AF=E3=83=A9=
+=E3=82=A6=E3=83=89=E3=83=BB=E3=82=B3=E3=83=B3=E3=83=94=E3=83=A5=E3=83=BC=E3=
+=83=86=E3=82=A3=E3=83=B3=E3=82=B0=E3=81=AE=E3=83=88=E3=83=AC=E3=83=B3=E3=83=
+=89=E3=82=92=E7=99=BA=E8=A1=A8</a>
+<ul>
+<li>=E4=BC=81=E6=A5=AD=E3=81=AF=E3=80=81=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=
+=89=E3=83=BB=E3=83=95=E3=82=A1=E3=83=BC=E3=82=B9=E3=83=88=E3=81=A8=E3=81=AF=
+=E3=82=B9=E3=82=AD=E3=83=AB=E3=83=BB=E3=83=95=E3=82=A1=E3=83=BC=E3=82=B9=E3=
+=83=88=E3=81=A7=E3=81=82=E3=82=8B=E3=81=A8=E3=81=84=E3=81=86=E8=A6=B3=E7=82=
+=B9=E3=82=92=E8=B8=8F=E3=81=BE=E3=81=88=E3=81=9F=E4=B8=8A=E3=81=A7=E3=80=81=
+=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=81=AE=E6=96=B0=E3=81=97=E3=81=84=E3=
+=82=B9=E3=82=AD=E3=83=AB=E3=81=AB=E3=82=88=E3=82=8A=E6=96=B0=E3=81=97=E3=81=
+=84=E3=82=B9=E3=82=BF=E3=82=A4=E3=83=AB=E3=82=92=E5=AE=9F=E8=B7=B5=E3=81=A7=
+=E3=81=8D=E3=82=8B=E3=82=88=E3=81=86=E3=81=AB=E3=81=AA=E3=82=8B=E3=81=9F=E3=
+=82=81=E3=81=AE=E4=BA=BA=E6=9D=90=E6=8A=95=E8=B3=87=E6=88=A6=E7=95=A5=E3=82=
+=92=E3=80=812022=E5=B9=B4=E3=81=AEIT=E6=88=A6=E7=95=A5=E3=81=AE=E9=87=8D=E8=
+=A6=81=E3=81=AA=E6=9F=B1=E3=81=A8=E3=81=99=E3=82=8B=E5=BF=85=E8=A6=81=E3=81=
+=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99</li>
+</ul></li>
+<li><a href=3D"https://www.gartner.com/jp/newsroom/press-releases/pr-202004=
+01" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=AC=E3=83=BC=E3=83=
+=88=E3=83=8A=E3=83=BC=E3=80=81=E6=97=A5=E6=9C=AC=E3=81=AB=E3=81=8A=E3=81=91=
+=E3=82=8B=E3=83=86=E3=82=AF=E3=83=8E=E3=83=AD=E3=82=B8=E4=BA=BA=E6=9D=90=E3=
+=81=AE=E5=B0=86=E6=9D=A5=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B2020=E5=B9=B4=
+=E3=81=AE=E5=B1=95=E6=9C=9B=E3=82=92=E7=99=BA=E8=A1=A8</a>
+<ul>
+<li>2023=E5=B9=B4=E3=81=BE=E3=81=A7=E3=81=AB=E3=80=81Amazon Web
+Services=E3=81=AA=E3=81=A9=E3=81=AE=E6=9C=AC=E7=89=A9=E3=81=AE=E3=82=AF=E3=
+=83=A9=E3=82=A6=E3=83=89=E3=81=AE=E8=AA=8D=E5=AE=9A=E8=B3=87=E6=A0=BC=E3=82=
+=92=E5=8F=96=E5=BE=97=E3=81=99=E3=82=8B=E3=83=A6=E3=83=BC=E3=82=B6=E3=83=BC=
+=E4=BC=81=E6=A5=AD=E3=81=AE=E5=89=B2=E5=90=88=E3=81=AF60%=E3=82=92=E8=B6=85=
+=E3=81=88=E3=80=81=E3=82=B9=E3=82=AD=E3=83=AB=E3=82=92=E6=8C=81=E3=81=9F=E3=
+=81=AA=E3=81=84=E3=83=99=E3=83=B3=E3=83=80=E3=83=BC=E3=82=84=E3=82=A4=E3=83=
+=B3=E3=83=86=E3=82=B0=E3=83=AC=E3=83=BC=E3=82=BF=E3=83=BC=E3=81=AB=E3=81=A8=
+=E3=81=A3=E3=81=A6=E3=81=AE=E8=84=85=E5=A8=81=E3=81=A8=E3=81=AA=E3=82=8B</l=
+i>
+</ul></li>
+</ul></li>
+<li>Arch =E5=BE=A9=E7=BF=92
+<ul>
+<li><a href=3D"https://explore.skillbuilder.aws/learn/course/external/view/=
+elearning/11372/architecting-on-aws-online-course-supplement-japanese" targ=
+et=3D"_blank" rel=3D"noopener noreferrer">Online
+Course Supplement: Architecting on AWS (Japanese)</a></li>
+</ul></li>
+<li>=E5=AD=A6=E7=BF=92Web =E6=83=85=E5=A0=B1
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/blogs/news/2022-aws-beginner-learn=
+ing/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E5=88=9D=E5=AD=A6=E8=80=85=E5=90=91=E3=81=91=E3=81=AE=E5=8B=89=E5=BC=B7=E6=
+=96=B9=E6=B3=95 6 =E3=82=B9=E3=83=86=E3=83=83=E3=83=97=EF=BC=812022 =E5=B9=
+=B4=E7=89=88=EF=BC=81 | Amazon Web Services
+=E3=83=96=E3=83=AD=E3=82=B0</a></li>
+<li><a href=3D"https://aws.amazon.com/jp/aws-jp-introduction/aws-jp-webinar=
+-service-cut/" target=3D"_blank" rel=3D"noopener noreferrer">=E3=82=B5=E3=
+=83=BC=E3=83=93=E3=82=B9=E5=88=A5=E8=B3=87=E6=96=99
+| AWS =E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=
+=B9=E6=B4=BB=E7=94=A8=E8=B3=87=E6=96=99=E9=9B=86</a></li>
+</ul></li>
+<li>=E5=AD=A6=E7=BF=92=E7=92=B0=E5=A2=83
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/free/" target=3D"_blank" rel=3D"no=
+opener noreferrer">AWS =E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E7=84=A1=E6=96=
+=99=E5=88=A9=E7=94=A8=E6=9E=A0 |
+AWS</a></li>
+<li>AWS =E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E4=BD=9C=E6=
+=88=90=E3=81=97=E3=81=9F=E3=82=89
+<ul>
+<li>AWS =E5=88=9D=E5=BF=83=E8=80=85=E5=BF=85=E8=A6=8B! AWS =E3=81=AE=E8=AA=
+=8D=E8=A8=BC=E3=81=A8=E8=AA=8D=E5=8F=AF=E3=82=92=E7=90=86=E8=A7=A3=E3=81=97=
+=E3=80=81AWS =E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92MFA
+=E3=81=A7=E4=BF=9D=E8=AD=B7=E3=81=97=E3=82=88=E3=81=86 <a href=3D"https://b=
+log.nijot.com/aws/protecting-your-aws-account-with-mfa-part1/" target=3D"_b=
+lank" rel=3D"noopener noreferrer">Part1</a>
+/ <a href=3D"https://blog.nijot.com/aws/protecting-your-aws-account-with-mf=
+a-part2/" target=3D"_blank" rel=3D"noopener noreferrer">Part2</a></li>
+</ul></li>
+</ul></li>
+<li>=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E6=9B=B8=E7=B1=8D
+<ul>
+<li><a href=3D"https://www.amazon.co.jp/dp/B07QX45RXM" target=3D"_blank" re=
+l=3D"noopener noreferrer">AWS=E8=AA=8D=E5=AE=9A=E8=B3=87=E6=A0=BC=E8=A9=A6=
+=E9=A8=93=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=80=80AWS=E8=AA=8D=E5=AE=9A
+=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=83=97=E3=83=A9=E3=82=AF=E3=83=86=E3=
+=82=A3=E3=82=B7=E3=83=A7=E3=83=8A=E3=83=BC</a></li>
+<li><a href=3D"https://www.amazon.co.jp/dp/B08MVXRFFN" target=3D"_blank" re=
+l=3D"noopener noreferrer">AWS=E8=AA=8D=E5=AE=9A=E8=B3=87=E6=A0=BC=E8=A9=A6=
+=E9=A8=93=E3=83=86=E3=82=AD=E3=82=B9=E3=83=88=E3=80=80AWS=E8=AA=8D=E5=AE=9A
+=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=82=A2=E3=
+=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=88-=E3=82=A2=E3=82=BD=E3=82=B7=E3=
+=82=A8=E3=82=A4=E3=83=88</a></li>
+</ul></li>
+<li>=E8=AA=8D=E5=AE=9A=E8=A9=A6=E9=A8=93=E3=81=AE=E6=BA=96=E5=82=99
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/certification/faqs/" target=3D"_bl=
+ank" rel=3D"noopener noreferrer">AWS
+=E8=AA=8D=E5=AE=9A=E3=81=AE=E3=82=88=E3=81=8F=E3=81=82=E3=82=8B=E8=B3=AA=E5=
+=95=8F (FAQ)</a></li>
+<li><a href=3D"http://aws.amazon.com/jp/certification/certified-solutions-a=
+rchitect-associate/?nc1=3Dh_ls" target=3D"_blank" rel=3D"noopener noreferre=
+r">=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=83=BC=
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=88=E3=82=A2=E8=A9=A6=E9=
+=A8=93=E3=81=AE=E8=A9=B3=E7=B4=B0AWS
+=E8=AA=8D=E5=AE=9A=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=
+=83=B3=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=88 =E2=80=93 =E3=
+=82=A2=E3=82=BD=E3=82=B7=E3=82=A8=E3=82=A4=E3=83=88</a></li>
+<li>=E8=A9=A6=E9=A8=93=E6=BA=96=E5=82=99=E3=82=B3=E3=83=BC=E3=82=B9 (=E3=82=
+=A6=E3=82=A7=E3=83=93=E3=83=8A=E3=83=BC - =E6=97=A5=E6=9C=AC=E8=AA=9E): <a =
+href=3D"https://aws.amazon.com/jp/training/events/?trk=3Del_a134p000007CIgH=
+AAW&amp;trkCampaign=3DAPAC-FY21-TrainCert-DeveloperCampaign_IN_Uberflip&amp=
+;sc_channel=3Del&amp;sc_campaign=3DTrainCert-DeveloperCampaign_IN_Uberflip_=
+APAC_FY21_Q3_tclever_FLC_EL&amp;sc_outcome=3DTraining_and_Certification&amp=
+;sc_geo=3DAPAC&amp;sc_country=3Dmult&amp;get-certified-vilt-courses-cards.s=
+ort-by=3Ditem.additionalFields.startDateSort&amp;get-certified-vilt-courses=
+-cards.sort-order=3Dasc&amp;awsf.get-certified-vilt-courses-type=3D*all&amp=
+;awsf.get-certified-vilt-courses-series=3D*all&amp;awsf.get-certified-vilt-=
+audience=3D*all&amp;awsf.get-certified-vilt-locations=3D*all&amp;awsf.get-c=
+ertified-vilt-countries=3D*all&amp;awsf.get-certified-vilt-languages=3Dlang=
+uage%23japanese&amp;awsf.get-certified-vilt-courses-level=3D*all&amp;awsf.g=
+et-certified-vilt-courses-tech-category=3D*all&amp;get-certified-vilt-cours=
+es-cards.q=3Dsolutions%2Barchitect%2B-%2Bassociate&amp;get-certified-vilt-c=
+ourses-cards.q_operator=3DAND" target=3D"_blank" rel=3D"noopener noreferrer=
+">AWS
+=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=81=A8=E8=AA=8D=E5=
+=AE=9A=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=AE=E8=A9=B3=E7=B4=B0</a></=
+li>
+<li>=E8=A9=A6=E9=A8=93=E6=BA=96=E5=82=99=E3=82=B3=E3=83=BC=E3=82=B9(=E7=84=
+=A1=E6=96=99=E3=83=87=E3=82=B8=E3=82=BF=E3=83=AB): <a href=3D"https://explo=
+re.skillbuilder.aws/learn/course/internal/view/elearning/8000/exam-readines=
+s-aws-certified-solutions-architect-associate-digital-japanese-ri-ben-yu-sh=
+i-xie-ban" target=3D"_blank" rel=3D"noopener noreferrer">Exam
+Readiness: AWS Certified Solutions Architect =E2=80=93 Associate (Digital)
+(Japanese) (=E6=97=A5=E6=9C=AC=E8=AA=9E=E5=AE=9F=E5=86=99=E7=89=88)</a></li=
+>
+<li>=E6=A8=A1=E6=93=AC=E8=A9=A6=E9=A8=93: <a href=3D"https://explore.skillb=
+uilder.aws/learn/course/internal/view/elearning/9159/aws-certification-offi=
+cial-practice-question-sets-japanese" target=3D"_blank" rel=3D"noopener nor=
+eferrer">AWS
+Certification Official Practice Question Sets
+(Japanese)</a>=E3=81=8B=E3=82=89=E6=A8=A1=E6=93=AC=E8=A9=A6=E9=A8=93=E3=82=
+=92=E7=84=A1=E6=96=99=E3=81=A7=E7=94=B3=E8=BE=BC=E5=8F=AF=E8=83=BD</li>
+<li>=E3=82=B5=E3=83=B3=E3=83=97=E3=83=AB=E5=95=8F=E9=A1=8C(AWS =E5=85=AC=E5=
+=BC=8F): <a href=3D"https://d1.awsstatic.com/ja_JP/training-and-certificati=
+on/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Sample-Questio=
+ns.pdf" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Certified Solutions Architect =E2=80=93 Associate (SAA-C02) =E8=A9=A6=E9=A8=
+=93=E5=95=8F=E9=A1=8C=E3=82=B5=E3=83=B3=E3=83=97=E3=83=AB</a>
+<ul>
+<li>=E3=82=B5=E3=83=B3=E3=83=97=E3=83=AB=E5=95=8F=E9=A1=8C=E3=81=AE=E8=A7=
+=A3=E8=AA=AC: <a href=3D"https://blog.trainocate.co.jp/blog/awssaac02_022" =
+target=3D"_blank" rel=3D"noopener noreferrer">=E3=80=90=E8=A7=A3=E8=AA=AC=
+=E3=81=A4=E3=81=8D=E3=80=912020=E5=B9=B43=E6=9C=88=E6=96=B0=E8=A9=A6=E9=A8=
+=93=E7=89=88AWS
+=E8=AA=8D=E5=AE=9A=E3=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=
+=83=B3=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=88 -
+=E3=82=A2=E3=82=BD=E3=82=B7=E3=82=A8=E3=82=A4=E3=83=88=E8=B3=87=E6=A0=BC=E3=
+=81=AE=E3=82=B5=E3=83=B3=E3=83=97=E3=83=AB=E5=95=8F=E9=A1=8C=E3=82=92=E8=A7=
+=A3=E3=81=84=E3=81=A6=E3=81=BF=E3=82=88=E3=81=86 |
+=E3=83=88=E3=83=AC=E3=83=8E=E3=82=B1=E3=83=BC=E3=83=88=E5=85=AC=E5=BC=8F=E3=
+=83=96=E3=83=AD=E3=82=B0</a></li>
+</ul></li>
+</ul></li>
+<li>=E3=81=9D=E3=81=AE=E4=BB=96=E8=A9=A6=E9=A8=93=E5=8F=82=E8=80=83=E8=B3=
+=87=E6=96=99
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/aws-jp-introduction/aws-jp-webinar=
+-service-cut/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E5=88=A5=E8=B3=87=E6=96=99</a></li>
+<li><a href=3D"http://aws.amazon.com/jp/whitepapers/" target=3D"_blank" rel=
+=3D"noopener noreferrer">AWS
+=E3=83=9B=E3=83=AF=E3=82=A4=E3=83=88=E3=83=9A=E3=83=BC=E3=83=91=E3=83=BC</a=
+></li>
+<li><a href=3D"https://aws.amazon.com/jp/architecture/" target=3D"_blank" r=
+el=3D"noopener noreferrer">AWS
+=E3=82=A2=E3=83=BC=E3=82=AD=E3=83=86=E3=82=AF=E3=83=81=E3=83=A3=E3=82=BB=E3=
+=83=B3=E3=82=BF=E3=83=BC</a></li>
+<li><a href=3D"http://aws.amazon.com/jp/documentation/" target=3D"_blank" r=
+el=3D"noopener noreferrer">AWS
+=E3=83=89=E3=82=AD=E3=83=A5=E3=83=A1=E3=83=B3=E3=83=88</a></li>
+</ul></li>
+</ul>
+<h1 id=3D"=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88">=E3=82=A4=E3=83=99=E3=83=B3=
+=E3=83=88</h1>
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/events/builders-online-series/" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer">AWS
+Builders Online Series - AWS =E5=88=9D=E5=BF=83=E8=80=85=E5=90=91=E3=81=91=
+=E5=A4=A7=E8=A6=8F=E6=A8=A1=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88 |
+2022=E5=B9=B47=E6=9C=8814=E6=97=A5=E9=96=8B=E5=82=AC=EF=BC=81| AWS =E5=85=
+=AC=E5=BC=8F</a></li>
+</ul>
+<h1 id=3D"=E3=81=9D=E3=81=AE=E4=BB=96">=E3=81=9D=E3=81=AE=E4=BB=96</h1>
+<ul>
+<li>AWS =E8=AA=8D=E5=AE=9A=E3=82=A4=E3=83=B3=E3=82=B9=E3=83=88=E3=83=A9=E3=
+=82=AF=E3=82=BF=E3=83=BC
+<ul>
+<li><a href=3D"https://aws.amazon.com/jp/training/aws-authorized-instructor=
+-program/" target=3D"_blank" rel=3D"noopener noreferrer">AWS
+Authorized Instructor Program | AWS Training and Certification</a></li>
+<li><a href=3D"https://www.kura-lab.co.jp/jigyou/education/aws-instructor/"=
+ target=3D"_blank" rel=3D"noopener noreferrer">AWS=E8=AA=8D=E5=AE=9A=E3=82=
+=A4=E3=83=B3=E3=82=B9=E3=83=88=E3=83=A9=E3=82=AF=E3=82=BF=E3=83=BC
+| =E4=BA=8B=E6=A5=AD=E5=86=85=E5=AE=B9 | =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=
+=BE=E3=81=8F=E3=82=89=E3=82=89=E3=81=BC</a></li>
+</ul></li>
+</ul>
+<h2 id=3D"section"><br></h2>
+<p><strong><em>Note:
+=E6=9C=AC=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=AE=E5=86=85=E5=AE=B9=E3=81=AF=E3=
+=80=81=E6=83=85=E5=A0=B1=E3=82=92=E6=9C=80=E6=96=B0=E3=81=AB=E4=BF=9D=E3=81=
+=A4=E3=81=9F=E3=82=81=E3=81=AB=E5=AE=9A=E6=9C=9F=E7=9A=84=E3=81=AB=E8=A6=8B=
+=E7=9B=B4=E3=81=97=E6=9B=B4=E6=96=B0=E3=81=95=E3=82=8C=E3=82=8B=E5=8F=AF=E8=
+=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E4=BA=
+=88=E3=82=81=E3=81=94=E4=BA=86=E6=89=BF=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82</em></strong></p>
+<br>
+<div style=3D"text-align: center;">
+<p>=C2=A9 2022 nijot.org</p>
+</div>
+
+
+</body></html>
+------MultipartBoundary--tatIQv6JapGYunjut5sobzRgBIVItPih2D82tPuQoY----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-d8a68ee6-b02b-4163-b9a7-ab45cf1e6d18@mhtml.blink
+
+@charset "utf-8";
+
+code { white-space: pre-wrap; }
+
+span.smallcaps { font-variant: small-caps; }
+
+div.columns { display: flex; gap: min(4vw, 1.5em); }
+
+div.column { flex: 1 1 auto; overflow-x: auto; }
+
+div.hanging-indent { margin-left: 1.5em; text-indent: -1.5em; }
+
+ul.task-list { list-style: none; }
+
+ul.task-list li input[type=3D"checkbox"] { width: 0.8em; margin: 0px 0.8em =
+0.2em -1.6em; vertical-align: middle; }
+
+.display.math { display: block; text-align: center; margin: 0.5rem auto; }
+------MultipartBoundary--tatIQv6JapGYunjut5sobzRgBIVItPih2D82tPuQoY----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://arch.nijot.org/github.css
+
+@charset "utf-8";
+
+body { font-family: Helvetica, arial, sans-serif; font-size: 16px; line-hei=
+ght: 1.6; background-color: white; padding: 30px; max-width: 800px; }
+
+body > :first-child { margin-top: 0px !important; }
+
+body > :last-child { margin-bottom: 0px !important; }
+
+a { color: rgb(65, 131, 196); }
+
+a.absent { color: rgb(204, 0, 0); }
+
+a.anchor { display: block; padding-left: 30px; margin-left: -30px; cursor: =
+pointer; position: absolute; top: 0px; left: 0px; bottom: 0px; }
+
+h1, h2, h3, h4, h5, h6 { margin: 20px 0px 10px; padding: 0px; font-weight: =
+bold; -webkit-font-smoothing: antialiased; cursor: text; position: relative=
+; border-bottom: medium solid cornflowerblue; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor,=
+ h5:hover a.anchor, h6:hover a.anchor { background: url("https://raw.github=
+usercontent.com/gollum/gollum/master/lib/gollum/public/gollum/images/para.p=
+ng") 10px center no-repeat; text-decoration: none; }
+
+h1 tt, h1 code { font-size: inherit; }
+
+h2 tt, h2 code { font-size: inherit; }
+
+h3 tt, h3 code { font-size: inherit; }
+
+h4 tt, h4 code { font-size: inherit; }
+
+h5 tt, h5 code { font-size: inherit; }
+
+h6 tt, h6 code { font-size: inherit; }
+
+h1 { font-size: 28px; color: cornflowerblue; }
+
+h2 { font-size: 24px; border-bottom: 1px solid rgb(204, 204, 204); color: c=
+ornflowerblue; }
+
+h3 { font-size: 18px; color: cornflowerblue; }
+
+h4 { font-size: 16px; }
+
+h5 { font-size: 14px; }
+
+h6 { color: rgb(119, 119, 119); font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre { margin: 6px 0px; }
+
+hr { background: url("https://raw.githubusercontent.com/gollum/gollum/maste=
+r/lib/gollum/public/gollum/images/dirty-shade.png") 0px 0px repeat-x transp=
+arent; border: 0px none; color: rgb(204, 204, 204); height: 4px; padding: 0=
+px; }
+
+body > h2:first-child { margin-top: 0px; padding-top: 0px; }
+
+body > h1:first-child { margin-top: 0px; padding-top: 0px; }
+
+body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
+
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body >=
+ h6:first-child { margin-top: 0px; padding-top: 0px; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:f=
+irst-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p { margin-top: 0px; }
+
+li p.first { display: inline-block; }
+
+ul, ol { padding-left: 30px; }
+
+ul :first-child, ol :first-child { margin-top: 5px; }
+
+ul :last-child, ol :last-child { margin-bottom: 0px; }
+
+dl { padding: 0px; }
+
+dl dt { font-size: 14px; font-weight: bold; font-style: italic; padding: 0p=
+x; margin: 15px 0px 5px; }
+
+dl dt:first-child { padding: 0px; }
+
+dl dt > :first-child { margin-top: 0px; }
+
+dl dt > :last-child { margin-bottom: 0px; }
+
+dl dd { margin: 0px 0px 15px; padding: 0px 15px; }
+
+dl dd > :first-child { margin-top: 0px; }
+
+dl dd > :last-child { margin-bottom: 0px; }
+
+blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; =
+color: rgb(119, 119, 119); }
+
+blockquote > :first-child { margin-top: 0px; }
+
+blockquote > :last-child { margin-bottom: 0px; }
+
+table { padding: 0px; }
+
+table tr { border-top: 1px solid rgb(204, 204, 204); background-color: whit=
+e; margin: 0px; padding: 0px; }
+
+table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+
+table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text=
+-align: left; margin: 0px; padding: 6px 13px; }
+
+table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margi=
+n: 0px; padding: 6px 13px; }
+
+table tr th :first-child, table tr td :first-child { margin-top: 0px; }
+
+table tr th :last-child, table tr td :last-child { margin-bottom: 0px; }
+
+img { max-width: 100%; }
+
+span.frame { display: block; overflow: hidden; }
+
+span.frame > span { border: 1px solid rgb(221, 221, 221); display: block; f=
+loat: left; overflow: hidden; margin: 13px 0px 0px; padding: 7px; width: au=
+to; }
+
+span.frame span img { display: block; float: left; }
+
+span.frame span span { clear: both; color: rgb(51, 51, 51); display: block;=
+ padding: 5px 0px 0px; }
+
+span.align-center { display: block; overflow: hidden; clear: both; }
+
+span.align-center > span { display: block; overflow: hidden; margin: 13px a=
+uto 0px; text-align: center; }
+
+span.align-center span img { margin: 0px auto; text-align: center; }
+
+span.align-right { display: block; overflow: hidden; clear: both; }
+
+span.align-right > span { display: block; overflow: hidden; margin: 13px 0p=
+x 0px; text-align: right; }
+
+span.align-right span img { margin: 0px; text-align: right; }
+
+span.float-left { display: block; margin-right: 13px; overflow: hidden; flo=
+at: left; }
+
+span.float-left span { margin: 13px 0px 0px; }
+
+span.float-right { display: block; margin-left: 13px; overflow: hidden; flo=
+at: right; }
+
+span.float-right > span { display: block; overflow: hidden; margin: 13px au=
+to 0px; text-align: right; }
+
+code, tt { margin: 0px 2px; padding: 0px 5px; white-space: nowrap; border: =
+1px solid rgb(234, 234, 234); background-color: rgb(248, 248, 248); border-=
+radius: 3px; }
+
+pre code { margin: 0px; padding: 0px; white-space: pre; border: none; backg=
+round: transparent; }
+
+.highlight pre { background-color: rgb(248, 248, 248); border: 1px solid rg=
+b(204, 204, 204); font-size: 13px; line-height: 19px; overflow: auto; paddi=
+ng: 6px 10px; border-radius: 3px; }
+
+pre { background-color: rgb(248, 248, 248); border: 1px solid rgb(204, 204,=
+ 204); font-size: 13px; line-height: 19px; overflow: auto; padding: 6px 10p=
+x; border-radius: 3px; }
+
+pre code, pre tt { background-color: transparent; border: none; }
+------MultipartBoundary--tatIQv6JapGYunjut5sobzRgBIVItPih2D82tPuQoY------
